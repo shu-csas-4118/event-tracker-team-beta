@@ -31,6 +31,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+app.listen(8080);
 
 // error handler
 app.use(function(err, req, res, next) {
