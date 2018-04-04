@@ -31,7 +31,14 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-app.listen(8080);
+
+var server = app.listen(8081, function(){
+  console.log('Listening on port 8081');
+});
+
+server.setTimeout(0, function() {
+  console.log('Server timed out');
+});
 
 // error handler
 app.use(function(err, req, res, next) {
