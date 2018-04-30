@@ -36,7 +36,7 @@ var server = app.listen(8081, function(){
   console.log('Listening on port 8081');
 });
 
-server.setTimeout(0, function() {
+server.setTimeout(10000, function() {
   console.log('Server timed out');
 });
 
