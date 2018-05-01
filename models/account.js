@@ -3,7 +3,8 @@ var Schema = mongoose.Schema;
 
 var accountSchema = new Schema({
     username: String,
-    password: String
+    password: String,
+    id: String
 });
 
 accountSchema.methods.login = function(username, password, callback){
