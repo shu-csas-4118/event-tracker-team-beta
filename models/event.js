@@ -1,21 +1,25 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+/*Event model that shows the attributes of the event (which is an object)*/
 var eventSchema = new Schema({
     date: String,
     time: String,
     Name: String,
-    Description: String,
-    Id: Number,
-    registrant: Array
+    description: String,
+    id: Number,
+    eventRegistrants: Array
 
 });
 
+
+/*checks if account has already been added to event and if not
+pushes(adds) account to array of registrants for event*/
 eventSchema.methods.addRegistrant() = function(account){
-    if(this.registrant.has(account))
-    return "Registrant already added.";
-    else {this.registrants.push(account);
-        return "Registrant Added."
+    if(this.eventRegistrants.has(account))
+        return "Registrant already added.";
+    else {this.eventRegistrants.push(account);
+        return "Registrant Added.";
     }
 }
 
