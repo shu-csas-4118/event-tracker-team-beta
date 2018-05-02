@@ -22,7 +22,7 @@ describe('Tests for user account', () => {
         var account = new Account({
             username: 'john.doe@shu.edu',
             password: 'password',
-            id: 1234,
+            id: s1234,
             events: []
         });
 
