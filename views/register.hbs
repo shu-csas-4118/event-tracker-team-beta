@@ -1,4 +1,32 @@
 <html>
-    <h1>{{title}}</h1>
+    <h1>REGISTER HERE</h1>
+
+
+    <p>
+        <label> <b>Enter your email/username: </b> </label>
+        <input type="text" name="email" id="email"/> 
+    </p>
+        <label> <b>Enter your desired password (no specific requirements): </b> </label>
+        <input type="password" name="password" id="password"/>
+    <p>
+        <label> <b>First Name: </b></label>
+        <input type="text" name="firstName" id="firstName"/> 
+    
+    </p>
+
+        <label> <b>Last Name: </b></label>
+        <input type="text" name="lastName" id="lastname"/> 
+    <p>
+        <input type="button" value="Submit" id="submit" onclick="registerUser()"/>
+    </p>
+  
 </html>
+
+<script lang="Javascript">
+function registerUser(){
+    alert("Successfully Registered!");
+    window.location = "login";
+    }
+    
+</script>
 
