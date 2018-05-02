@@ -23,10 +23,6 @@ eventSchema.methods.addRegistrant() = function(account){
     }
 }
 
-function Event(){
-};
-
-
 
 Event.prototype.getEvents = function () {
     return [];
