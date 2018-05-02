@@ -13,7 +13,7 @@ var accountSchema = new Schema({
     username: String,
     password: String,
     id: Number,
-    events: Array,
+    events: Array, //populate with event ids
     firstName: String,
     lastname: String,
     address: String
@@ -44,10 +44,11 @@ accountSchema.methods.login = function(nme, pwd, callback)
     }
 }
 
-/*addAnEvent(event): This method pushes the given event onto the events array for this account.*/
-accountSchema.methods.addAnEvent = function(event)
+/*addAnEvent(eventIDs): This method pushes the given event onto the events array for this account.*/
+//Static Methods-- look up
+accountSchema.methods.addAnEvent = function(eventID)
 {
-    this.events.push(event);
+    this.events.push(eventID);
 };
 
 module.exports = mongoose.model('users', accountSchema);

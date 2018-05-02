@@ -94,6 +94,7 @@ describe('Tests for user account', () =>
 
     //this test is going to test if an event is added to the users account.
     //first need to make a test event, then check the addAnEvent schema method.
+    //do this with event ids not event objects
    /* it('Add an event to the events of the user', (done) => {
     })*/
     
