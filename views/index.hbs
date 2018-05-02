@@ -1,2 +1,48 @@
+<html>
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<p>Welcome to <b>{{title}}</b></p>
+<p>If you are already a member, login</p>
+<p>If not, register</p>    
+<body>
+    <p>
+        <label> <b>Username: </b> </label>
+        <input type="text" name="username" id="username"/> 
+    </p>
+        <label> <b>Password: </b> </label>
+        <input type="password" name="password" id="password"/>
+    <p>
+
+    
+        <input type="button" value="Login" id="submit" onclick="validate()"/>
+    
+  
+        <input type="button" value="Register" id="submit" onclick="register()"/>
+    </p>
+
+    
+</body>
+</html>
+
+<script lang="Javascript">
+function validate(){
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    if ( username == "Matthew" && password == "password"){
+        alert("Login Successful!");
+        window.location = "success.html";
+        return false;
+    }
+    else{
+        alert("Please enter a registered username and password")
+        
+    }
+    
+}
+
+function register(){
+    alert("You will be redirected to the registration page")
+    window.location= "register.hbs";
+
+}
+
+</script>
