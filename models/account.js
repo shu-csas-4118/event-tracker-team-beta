@@ -13,7 +13,7 @@ var accountSchema = new Schema({
     username: String,
     password: String,
     id: Number,
-    events: Array, //populate with event ids
+    events: Array, //populated with event ids
     firstName: String,
     lastname: String,
     address: String
@@ -44,9 +44,8 @@ accountSchema.methods.login = function(nme, pwd, callback)
     }
 }
 
-/*addAnEvent(eventIDs): This method pushes the given event onto the events array for this account.*/
-//Static Methods-- look up
-accountSchema.methods.addAnEvent = function(eventID)
+/*addAnEvent(eventIDs): This method pushes the given event ID onto the events array for this account.*/
+accountSchema.statics.addAnEvent = function(eventID)
 {
     this.events.push(eventID);
 };

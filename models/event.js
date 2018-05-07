@@ -15,7 +15,7 @@ var eventSchema = new Schema({
 
 /*checks if account has already been added to event and if not
 pushes(adds) account to array of registrants for event*/
-eventSchema.methods.addRegistrant() = function(account){
+eventSchema.statics.addRegistrant() = function(account){
     if(this.eventRegistrants.has(account))
         return "Registrant already added.";
     else {this.eventRegistrants.push(account);

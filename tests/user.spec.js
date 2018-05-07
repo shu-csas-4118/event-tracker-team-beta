@@ -95,8 +95,22 @@ describe('Tests for user account', () =>
     //this test is going to test if an event is added to the users account.
     //first need to make a test event, then check the addAnEvent schema method.
     //do this with event ids not event objects
-   /* it('Add an event to the events of the user', (done) => {
-    })*/
+    it('Add an event to the events of the user', (done) => {
+        var testID = 123;
+        expect(account.addAnEvent).to.be.a('Function');
+
+
+    })
+
+    describe('addAnEvent()', () => {
+        it('should have an addAnEvent method', () => {
+            expect(account.addAnEvent).to.be.a('function');
+        })
+
+        it('should be a static method that populates account.events', () => {
+            expect(event.getEventDate()).to.be.a('string');
+        })
+    })
     
     /*afterEach((done) => {
         Account.remove({}, () => {
