@@ -46,7 +46,7 @@ server.setTimeout(10000, function() {
 });
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost27017/node-demo");
+mongoose.connect('mongodb://localhost/eventTracker');
 
 // error handler
 app.use(function(err, req, res, next) {
