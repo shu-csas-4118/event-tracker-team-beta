@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-const event = mongoose.model('event', eventSchema)
+const event = mongoose.model('Event', eventSchema)
 
 /*A mongoose schema representing one event of the application
     -String date: the event's account

@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+const passportlocalmongoose = require('passport-local-mongoose');
+account.plugin(passportLocalMongoose);
+
+
 /*account: A mongoose schema representing one user of the application.
     -String username: the account's username; also the account's email.
     -String password: the account's password.
@@ -9,6 +13,8 @@ var Schema = mongoose.Schema;
     -String firstName: the first name of the owner of the account.
     -String lastName: the last name of the owner of the account.
     -String address: the address of the owner of the account.*/
+
+/*My (Gabe's) comment was that we need to change this schema into a const in order for this to work*/
 var accountSchema = new Schema({
     username: String,
     password: String,
@@ -27,7 +33,7 @@ var accountSchema = new Schema({
                                             account associated with that username.*/
 accountSchema.methods.login = function(nme, pwd, callback)
 {
-    const logger = this.model('users').findOne({ username: nme }, callback);
+    const logger = this.model('account').findOne({ username: nme }, callback);
     if(logger)
     {
         if(logger.password === pwd)
@@ -50,4 +56,4 @@ accountSchema.statics.addAnEvent = function(eventID)
     this.events.push(eventID);
 };
 
-module.exports = mongoose.model('users', accountSchema);
+module.exports = mongoose.model('account', accountSchema);
