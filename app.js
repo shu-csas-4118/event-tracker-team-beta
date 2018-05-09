@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require("mongoose");
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -43,6 +44,9 @@ var server = app.listen(8080, function(){
 server.setTimeout(10000, function() {
   console.log('Server timed out');
 });
+
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost27017/node-demo");
 
 // error handler
 app.use(function(err, req, res, next) {
