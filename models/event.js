@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+const event = mongoose.model('event', eventSchema)
 
 /*A mongoose schema representing one event of the application
     -String date: the event's account
@@ -43,5 +44,6 @@ Event.prototype.getEvents = function () {
 Event.prototype.getEventById = function(id) {
     return {id: 1};
 }
+
 
 module.exports = Event;
