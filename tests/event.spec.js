@@ -1,5 +1,6 @@
 'use strict' //makes sure good JS syntax is being used
 
+//chai is a testing framework
 const Event = require('../models/event')
 const Account = require('../models/account')
 const expect = require('chai').expect
@@ -17,6 +18,31 @@ describe ('Event module', () => {
         })
     })
 
+    before((done) => {
+        const db = mongoose.connect('mongodb://localhost/eventtrack');
+        done();
+    });
+
+    after((done) => {
+        mongoose.connection.close();
+        done();
+    });
+
+    beforeEach( (done) => {
+        var event = new Event({
+            date: "June 5th, 2018",
+            time: '1:30pm-3:30',
+            name: s1234,
+            description: "insert description",
+            id: "1234",
+            eventRegistrants: []
+        });
+
+        event.save((error) => {
+            if (error) console.log('error' + error.message);
+            done();
+        });
+    });
 
 
     describe('"getEventDate', () => {
