@@ -17,15 +17,16 @@
         <label> <b>Last Name: </b></label>
         <input type="text" name="lastName" id="lastname"/> 
     <p>
-        <input type="button" value="Submit" id="submit" onclick="registerUser()"/>
+        <input type="button" value="Submit" id="submit" onclick="registerUser(insertUser())"/>
     </p>
   
 </html>
 
 <script lang="Javascript">
-function registerUser(){
-    alert("Successfully Registered!");
+function registerUser(callback){
+    console.log("Successfully Registered!");
     window.location = "login";
+    callback();
     }
     
 </script>
