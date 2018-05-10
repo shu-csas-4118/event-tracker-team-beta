@@ -1,48 +1,44 @@
 <html>
-<h1>{{title}}</h1>
-<p>Welcome to <b>{{title}}</b></p>
-<p>If you are already a member, login</p>
-<p>If not, register</p>    
 <body>
-    <p>
+<h1>{{title}}</h1>
+<div>
+    Welcome to <b>{{title}}</b>
+    <form method="get" action="/register">
         <label> <b>Username: </b> </label>
-        <input type="text" name="username" id="username"/> 
-    </p>
+        <input type="text" name="username" id="username" placeholder="username" required><br>
         <label> <b>Password: </b> </label>
-        <input type="password" name="password" id="password"/>
-    <p>
+        <input type="password" name="password" id="password" placeholder="password" required><br>
+        <input type="submit" value="Login" id="login" onclick="validate()">
 
-    
-        <input type="button" value="Login" id="submit" onclick="validate()"/>
-    
-  
-        <input type="button" value="Register" id="submit" onclick="register()"/>
-    </p>
 
-    
+        <input type="submit" value="Register" id="register" onclick="insertUser()">
+    </form>
+</div>
+
+
 </body>
 </html>
 
 <script lang="Javascript">
-function validate(){
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    if ( username == "Matthew" && password == "password"){
-        alert("Login Successful!");
-        window.location = "login";
-        return false;
-    }
-    else{
-        alert("Please enter a registered username and password")
-        
-    }
-    
-}
+    function validate(){
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        if ( username == "Matthew" && password == "password"){
+            alert("Login Successful!");
+            window.location = "login";
+            return false;
+        }
+        else{
+            alert("Please enter a registered username and password")
 
-function register(){
-    alert("You will be redirected to the registration page");
-    window.location= "register";
+        }
 
-}
+    }
+
+    function register(){
+        alert("You will be redirected to the registration page");
+        window.location= "register";
+
+    }
 
 </script>

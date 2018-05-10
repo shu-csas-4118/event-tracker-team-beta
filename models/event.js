@@ -1,5 +1,7 @@
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+<<<<<<< HEAD
 const event = mongoose.model('Event', eventSchema)
 
 /*A mongoose schema representing one event of the application
@@ -9,6 +11,11 @@ const event = mongoose.model('Event', eventSchema)
     -String description: the description of the event
     -String id: the id of the event
     -Array eventRegistrants: the address of the owner of the account.*/
+=======
+const Event = require("../models/event");
+
+/*Event model that shows the attributes of the event (which is an object)*/
+>>>>>>> Zohar
 var eventSchema = new Schema({
     date: String,
     time: String,
@@ -21,6 +28,7 @@ var eventSchema = new Schema({
 });
 
 
+<<<<<<< HEAD
 /*checks if: 
     1. If account has already been added to event
     2. If event is already full and if full returns message saying they cannot register for event
@@ -33,17 +41,25 @@ eventSchema.methods.addRegistrant() = function(account){
     else {this.eventRegistrants.id.push(account)
         registrantCounter ++
         return "Registrant Added."
+=======
+/*checks if account has already been added to event and if not
+pushes(adds) account to array of registrants for event*/
+eventSchema.methods.addRegistrant() = function(eventId){
+    if(this.eventRegistrants.has(eventId))
+        return "Registrant already added.";
+    else {this.eventRegistrants.push(eventId);
+        return "Registrant Added.";
+>>>>>>> Zohar
     }
-}
-
-
-Event.prototype.getEvents = function () {
-    return [];
 };
 
-Event.prototype.getEventById = function(id) {
-    return {id: 1};
-}
+
+eventSchema.methods.getEvents = function () {
+};
+
+eventSchema.methods.getEventById = function(id) {
+    this.db.findOne
+};
 
 
 module.exports = Event;

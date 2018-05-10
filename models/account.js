@@ -48,7 +48,7 @@ accountSchema.methods.login = function(nme, pwd, callback)
     else{
         return 'Password or username invalid.'
     }
-}
+};
 
 /*addAnEvent(eventIDs): This method pushes the given event ID onto the events array for this account.*/
 accountSchema.statics.addAnEvent = function(eventID)
