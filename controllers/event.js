@@ -1,23 +1,28 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const Event = require("../models/event");
+const router = express.Router();
 
-/*GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('register', {title: 'Register for an event'});
+router.get('/addEvent', function(req,res){
+    res.render('addEvent', {});
+});
+
+router.post('/addEvent', function (req, res, next){
+    const evt = new Event({
+        date: String,
+        time: String,
+        Name: String,
+        description: String,
+        id: Number,
+        eventRegistrants: Array
+    });
+
+    evt.save(function(error){
+        if (error){
+            console.log(error.message);
+        }
+    });
+
+    res.redirect('events');
 });
 
 module.exports = router;
-const express = require('express');
-const passport = require('passport');
-const Account = require('../models/event');
-const router = express.Router();
-
-router.get('/eventRegister', (req, res) => {
-    res.render('eventRegister', { });
-});
-
-router.post('/eventRegister', (req, res, next) => {
-
-});
-
-module.exports = router

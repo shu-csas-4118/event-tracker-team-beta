@@ -26,7 +26,7 @@ var eventSchema = new Schema({
     1. If account has already been added to event
     2. If event is already full and if full returns message saying they cannot register for event
     3. If not, pushes(adds) account by account id to array of registrants for event*/
-eventSchema.methods.addRegistrant() = function(account){
+eventSchema.statics.addRegistrant = function(account){
     if(this.eventRegistrants.has(account))
         return "Registrant already added."
     if(this.registrantCounter >= maxEventRegistrants)

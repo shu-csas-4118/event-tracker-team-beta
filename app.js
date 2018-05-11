@@ -6,11 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongodb = require("mongodb");
 
-
 var index = require('./routes/index');
-var users = require('./routes/users');
-var register = require('./routes/register');
-var login = require('./routes/login');
+var event = require('./routes/event');
+var home = require('./routes/home');
 
 var app = express();
 
@@ -68,9 +66,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+/*app.use('/users', users);
 app.use('/register', register);
-app.use('/login', login);
+app.use('/login', login);*/
+app.use('/event', event);
+app.use('/home', home);
 
 app.use("/", function(req, res) {
   res.sendFile(__dirname + "/index.hbs");
