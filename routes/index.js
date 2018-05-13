@@ -5,8 +5,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'WELCOME TO EVENT TRACKER' });
 });
 
-router.get('/index', function(req, res, next) {
-  res.render('index', {});
+router.get('/about', function(req, res, next) {
+  res.render('about', {});
+
 });
 
 router.get('/userRegister', function(req, res, next) {
