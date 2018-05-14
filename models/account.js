@@ -1,9 +1,7 @@
+//REQUIREMENTS AND INSTANTIATION
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
-const passportlocalmongoose = require('passport-local-mongoose');
-account.plugin(passportLocalMongoose);
-
+var passportLocalMongoose = require('passport-local-mongoose');
 
 /*account: A mongoose schema representing one user of the application.
     -String username: the account's username; also the account's email.
@@ -14,7 +12,6 @@ account.plugin(passportLocalMongoose);
     -String lastName: the last name of the owner of the account.
     -String address: the address of the owner of the account.*/
 
-/*My (Gabe's) comment was that we need to change this schema into a const in order for this to work*/
 var accountSchema = new Schema({
     username: String,
     password: String,
@@ -24,6 +21,8 @@ var accountSchema = new Schema({
     lastname: String,
     address: String
 });
+
+accountSchema.plugin(passportLocalMongoose);
 
 /*login(String, String, Callback): This method takes in two Strings representing
                                     a username and password and:

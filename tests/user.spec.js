@@ -10,7 +10,7 @@ describe('Tests for user account', () =>
 
     before((done) => 
     {
-        const db = mongoose.connect('mongodb://localhost/eventtrack');
+        const db = mongoose.connect('mongodb://localhost/event-tracker');
         done();
     });
 
