@@ -15,7 +15,6 @@ var passportLocalMongoose = require('passport-local-mongoose');
 var accountSchema = new Schema({
     username: String,
     password: String,
-    id: Number,
     events: Array, //populated with event ids
     firstName: String,
     lastname: String,
@@ -30,7 +29,7 @@ accountSchema.plugin(passportLocalMongoose);
                                         2. sees if the password matches the username.
                                         3. returns the account if the password matches the 
                                             account associated with that username.*/
-accountSchema.methods.login = function(nme, pwd, callback)
+/*accountSchema.methods.login = function(nme, pwd, callback)
 {
     const logger = this.model('account').findOne({ username: nme }, callback);
     if(logger)
@@ -47,7 +46,7 @@ accountSchema.methods.login = function(nme, pwd, callback)
     else{
         return 'Password or username invalid.'
     }
-};
+};*/             //Pretty sure we dont need this because we are using passport authentification
 
 /*addAnEvent(eventIDs): This method pushes the given event ID onto the events array for this account.*/
 accountSchema.statics.addAnEvent = function(eventID)
@@ -55,4 +54,4 @@ accountSchema.statics.addAnEvent = function(eventID)
     this.events.push(eventID);
 };
 
-module.exports = mongoose.model('account', accountSchema);
+module.exports = mongoose.model('Account', accountSchema);

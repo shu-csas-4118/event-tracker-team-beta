@@ -88,15 +88,7 @@ mongoose.connect("mongodb://localhost:27017/event-tracker");
 // Database Name
 //const dbName = 'eventTrackTest';
 
-var userSchema = new mongoose.Schema({
-  username: String,
-  password: String,
-  id: Number,
-  events: Array, //populate with event ids
-  firstName: String,
-  lastname: String,
-  address: String
-});
+
 
 var User = mongoose.model("User", userSchema);
 
@@ -135,8 +127,8 @@ var server = app.listen(app.get('port'), function () {
   console.log("App now running on port" + app.get('port'));
 });
 
-server.setTimeout(0, function(){
+/*server.setTimeout(0, function(){
   console.log('Server timed out.');
-})
+})*/
 
 module.exports = app;

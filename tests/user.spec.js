@@ -1,6 +1,8 @@
 'use strict'
 
-const expect = require('chai').expect;
+const chai = require('chai');
+const expect = chai.expect;
+const assert = chai.assert;
 const mongoose = require('mongoose');
 const Account = require ("../models/account");
 
@@ -25,7 +27,6 @@ describe('Tests for user account', () =>
         var account = new Account({
             username: 'john.doe@shu.edu',
             password: 'password',
-            id: s1234,
             events: [],
             firstName: 'John',
             lastName: 'Doe',
@@ -39,24 +40,44 @@ describe('Tests for user account', () =>
         });
     });
 
-    it('Account should have a username that is a String', () => 
-    {
-        expect(account.username).to.be.a('String');
-    });
-
-    it('Account should have a password that is a String', () => 
-    {
-        expect(account.password).to.be.a('String');
-    });
-
-    it('Account should have an ID that is a Number.', () =>
+    it('Find a user by their username', (done) =>
      {
-        expect(account.id).to.be.a('Number');
+        Account.findOne({ username: 'john.doe@shu.edu' }, (err, account) =>
+        {
+            expect(account.username).to.eql('john.doe@shu.edu');
+            done();
+        });
     });
 
-    it('Account should have an array of events.', () =>
+    it('Should have a first name that is a string.', (done) =>
      {
-        expect(account.events).to.be.an('Array');
+        Account.findOne({username: 'john.doe@shu.edu'}, function (err, account) {
+            expect(account.first).to.be.a("String");
+        })
+        done();
+    });
+    
+    it('Account should have a username that is a String', function (done) {
+        Account.findOne({username: 'john.doe@shu.edu'}, (err, account) => {
+            expect(account.username).to.be.a('String');
+        });
+        done();
+    });
+
+    it('Account should have a password that is a String', function (done) 
+    {
+        Account.findOne({ username: 'john.doe@shu.edu'}, (err, account) => {
+            expect(account.password).to.be.a('String');
+        });
+        done();
+    });
+
+    it('Account should have an array of events.', function (done)
+     {
+        Account.findOne({ username: 'john.doe@shu.edu'}, (err, account) => {
+            expect(account.events).to.be.an('Array');
+        });
+        done();
     });
 
     it('Account should have a first name that is a String', () =>
@@ -74,23 +95,7 @@ describe('Tests for user account', () =>
         expect(account.address).to.be.a('String');
     });
 
-    it('Find a user by their username', (done) =>
-     {
-        Account.findOne({ username: 'john.doe@shu.edu' }, (err, account) =>
-        {
-            expect(account.username).to.eql('john.doe@shu.edu');
-            done();
-        });
-    });
-
-    it('Find a user by their ID', (done) => 
-    {
-        Account.findOne({ id: '1234'}, (err, account) =>
-         {
-            expect(account.id).to.eql('1234');
-            done();
-        });
-    });
+    
 
     //this test is going to test if an event is added to the users account.
     //first need to make a test event, then check the addAnEvent schema method.
@@ -105,10 +110,6 @@ describe('Tests for user account', () =>
     describe('addAnEvent()', () => {
         it('should have an addAnEvent method', () => {
             expect(account.addAnEvent).to.be.a('function');
-        })
-
-        it('should be a static method that populates account.events', () => {
-            expect(event.getEventDate()).to.be.a('string');
         })
     })
     
