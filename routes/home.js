@@ -5,5 +5,17 @@ var router = express.Router();
 router.get('/home', function(req, res, next) {
   res.render('home', {});
 });
+router.get('/ezoo', function(req, res, next) {
+  res.render('ezoo', {});
+});
+router.get('/tedTalk', function(req, res, next) {
+  res.render('tedTalk', {});
+});
+router.get('/johnMayer', function(req, res, next) {
+  res.render('johnMayer', {});
+});
+router.get('/kevinHart', function(req, res, next) {
+  res.render('kevinHart', {});
+});
 
 module.exports = router;
