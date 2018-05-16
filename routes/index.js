@@ -19,6 +19,11 @@ router.get('/userRegister', function(req, res, next) {
   res.render('userRegister', {});
 });
 
+router.get('/home', function(req, res, next) {
+  res.render('home', {});
+});
+
+
 router.post('/userRegister', function(req, res){
   Account.register(new Account({
       username : req.body.email,
@@ -37,11 +42,6 @@ router.post('/userRegister', function(req, res){
   });
 });
 
-//ABOUT PAGE
-router.get('/about', function(req, res, next) {
-  res.render('about', {});
-
-});
 
 //LOG OUT
 router.get('/logout', function(req, res){
