@@ -39,11 +39,11 @@ describe('Event tests', () => {
 
 
 describe ('Event module', () => {
-    describe('"seed"', () => {
+    /*describe('"seed"', () => {
         it ('should have a seed method', () => {
             expect(event.seed).to.be.a('function');
         })
-    })
+    })*/
 
 
 
