@@ -13,6 +13,7 @@ router.post('/', passport.authenticate('local'), function(req, res){
   res.redirect('/');
 });
 
+
 //REGISTRATION PAGE
 router.get('/userRegister', function(req, res, next) {
   res.render('userRegister', {});
