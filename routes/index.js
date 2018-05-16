@@ -11,7 +11,7 @@ router.get('/about', function(req, res, next) {
 });
 
 router.get('/userRegister', function(req, res, next) {
-  res.render('userRegister', {});
+  res.render('home', {});
 });
 
 
