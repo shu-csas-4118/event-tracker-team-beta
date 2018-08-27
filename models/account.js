@@ -1,7 +1,9 @@
-//REQUIREMENTS AND INSTANTIATION
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var passportLocalMongoose = require('passport-local-mongoose');
+
+const passportlocalmongoose = require('passport-local-mongoose');
+account.plugin(passportLocalMongoose);
+
 
 /*account: A mongoose schema representing one user of the application.
     -String username: the account's username; also the account's email.
@@ -12,16 +14,16 @@ var passportLocalMongoose = require('passport-local-mongoose');
     -String lastName: the last name of the owner of the account.
     -String address: the address of the owner of the account.*/
 
+
 var accountSchema = new Schema({
     username: String,
     password: String,
+    id: Number,
     events: Array, //populated with event ids
     firstName: String,
     lastname: String,
     address: String
 });
-
-accountSchema.plugin(passportLocalMongoose);
 
 /*login(String, String, Callback): This method takes in two Strings representing
                                     a username and password and:
@@ -29,7 +31,7 @@ accountSchema.plugin(passportLocalMongoose);
                                         2. sees if the password matches the username.
                                         3. returns the account if the password matches the 
                                             account associated with that username.*/
-/*accountSchema.methods.login = function(nme, pwd, callback)
+accountSchema.methods.login = function(nme, pwd, callback)
 {
     const logger = this.model('account').findOne({ username: nme }, callback);
     if(logger)
@@ -46,7 +48,7 @@ accountSchema.plugin(passportLocalMongoose);
     else{
         return 'Password or username invalid.'
     }
-};*/             //Pretty sure we dont need this because we are using passport authentification
+};
 
 /*addAnEvent(eventIDs): This method pushes the given event ID onto the events array for this account.*/
 accountSchema.statics.addAnEvent = function(eventID)
@@ -54,4 +56,4 @@ accountSchema.statics.addAnEvent = function(eventID)
     this.events.push(eventID);
 };
 
-module.exports = mongoose.model('Account', accountSchema);
+module.exports = mongoose.model('account', accountSchema);
